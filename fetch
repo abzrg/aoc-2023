@@ -2,14 +2,17 @@
 
 [ -d .git ] || exit
 
+AOC_SESSION="`cat .cookie`"
 YEAR=2023
 URL="https://adventofcode.com/$YEAR/day/$1/input"
+
 if [ "$1" -lt 10 ]; then
   OUTDIR="0${1}"
 else
   OUTDIR="${1}"
 fi
-[ -d $OUTDIR ] ||  { echo "Day $1 does not exist. Making directory..."  && command mkdir -v $OUTDIR ;}
 
-printf "Downloding + Preview of first few lines...\n\n"
+[ -d $OUTDIR ] ||  { echo "Making $1 directory."  && command mkdir -v $OUTDIR ;}
+
 curl "$URL" --cookie "session=$AOC_SESSION" --silent --output-dir "$OUTDIR" --output input.txt
+head "$OUTDIR"/input.txt
