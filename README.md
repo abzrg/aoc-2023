@@ -28,3 +28,14 @@ the match, `m`, also has `start([<gidx>])` and `end([<gidx>])` which returns the
 ## Regex syntax
 
 - non-digits: `\D`
+- non-capturing group: `(?:)`
+    - this is particularly useful when you want a repetition of a pattern in a
+      line to be captured as a whole, so you will do: `((?:somepattern)+)`. If
+      you just do `(somepattern)+`, python will return the last matched string to
+      `somepattern` in the repetition, and not the whole bunch of those strings.
+
+Refs:
+
+- [Python regex module](https://docs.python.org/3/library/re.html)
+- [Python regex cheat-sheet](https://www.datacamp.com/cheat-sheet/regular-expresso)
+
