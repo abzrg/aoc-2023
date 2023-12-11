@@ -12,7 +12,7 @@ else
   OUTDIR="${1}"
 fi
 
-[ -d $OUTDIR ] ||  { echo "Making $1 directory."  && command mkdir -v $OUTDIR ;}
+[ -d $OUTDIR ] ||  { echo "Making $1 directory."  && command cp -rv 00/ $OUTDIR ;}
 
 curl "$URL" --cookie "session=$AOC_SESSION" --silent --output-dir "$OUTDIR" --output input.txt
 head "$OUTDIR"/input.txt
